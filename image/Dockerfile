@@ -1,5 +1,5 @@
 FROM osixia/baseimage:0.10.3
-MAINTAINER Bertrand Gouny <bertrand.gouny@osixia.net>
+MAINTAINER Nimblic Pty Ltd <accounts@nimblic.com>
 
 # Use baseimage-docker's init system.
 CMD ["/sbin/my_init"]
@@ -26,6 +26,13 @@ ADD env.yml /etc/env.yml
 # Add OpenLDAP container start config & daemon
 ADD service/slapd/container-start.sh /etc/my_init.d/slapd
 ADD service/slapd/daemon.sh /etc/service/slapd/run
+
+# Add sample practitioners & conf
+ADD sampledata/practitioners.ldif /tmp/practitioners.ldif
+ADD sampledata/conf1.ldif /tmp/conf1.ldif
+ADD sampledata/conf2.ldif /tmp/conf2.ldif
+ADD sampledata/conf3.ldif /tmp/conf3.ldif
+ADD sampledata/conf4.ldif /tmp/conf4.ldif
 
 # Set OpenLDAP data and config directories in a data volume
 VOLUME ["/var/lib/ldap", "/etc/ldap/slapd.d"]

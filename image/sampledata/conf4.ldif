@@ -1,0 +1,10 @@
+dn: dc=nimblic,dc=com
+dc: nimblic
+objectClass: dcObject
+objectClass: organizationalUnit
+ou: nimblic
+
+dn: ou=Practitioners,dc=nimblic, dc=nimblic
+ou: Practitioners
+objectClass: top
+objectClass: organizationalUnit
